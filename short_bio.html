@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Short Biography — Mohammad Rizka Fadhli</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:  #1A2A4A;
+    --gold:  #C8972A;
+    --mid:   #E8E3D8;
+    --text:  #2C2C2C;
+    --muted: #6B6B6B;
+  }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #fff;
+    color: var(--text);
+  }
+
+  /* ── PAGE: exact A4, single page ── */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    height: 6px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, var(--navy) 60%, var(--gold) 100%);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 22px 38px 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  .photo-wrap img {
+    width: 95px;
+    height: 110px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--gold);
+    display: block;
+  }
+
+  .header-text { flex: 1; }
+
+  .header-text h1 {
+    font-family: 'Georgia', serif;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .header-text .degree {
+    font-size: 10.5pt;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  .header-text .position {
+    margin-top: 7px;
+    font-size: 9pt;
+    color: #CBD5E0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-row {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+  }
+
+  .contact-item {
+    font-size: 8.5pt;
+    color: #A0AEC0;
+  }
+
+  .contact-item span { color: var(--gold); margin-right: 3px; }
+
+  /* ── BODY ── */
+  .body {
+    padding: 18px 38px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Section heading */
+  .section-title {
+    font-family: 'Georgia', serif;
+    font-size: 9pt;
+    font-weight: bold;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .two-col {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+  }
+
+  .col-left  { flex: 1.15; display: flex; flex-direction: column; gap: 14px; }
+  .col-right { flex: 0.85; display: flex; flex-direction: column; gap: 14px; }
+
+  /* Bio text */
+  .bio-text {
+    font-size: 9pt;
+    color: var(--text);
+    text-align: justify;
+    line-height: 1.65;
+  }
+
+  .bio-text strong { color: var(--navy); font-weight: bold; }
+
+  /* Education */
+  .edu-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  .edu-dot-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .edu-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  .edu-line {
+    width: 1.5px;
+    flex: 1;
+    min-height: 22px;
+    background: var(--mid);
+    margin-top: 3px;
+  }
+
+  .edu-content { flex: 1; }
+
+  .edu-degree {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+
+  .edu-inst {
+    font-size: 8.5pt;
+    color: var(--gold);
+    font-weight: bold;
+    margin-top: 1px;
+  }
+
+  .edu-year {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .edu-thesis {
+    font-size: 7.8pt;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  /* Career */
+  .career-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  .career-dot-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .career-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .career-line {
+    width: 1.5px;
+    flex: 1;
+    min-height: 22px;
+    background: var(--mid);
+    margin-top: 3px;
+  }
+
+  .career-content { flex: 1; }
+
+  .career-role {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+
+  .career-org {
+    font-size: 8.5pt;
+    color: var(--gold);
+    font-weight: bold;
+    margin-top: 1px;
+  }
+
+  .career-period {
+    font-size: 7.8pt;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .career-desc {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* Award */
+  .award-box {
+    background: linear-gradient(135deg, var(--navy), #2d4a7a);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 5px 5px 0;
+    padding: 10px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .award-icon { font-size: 18pt; flex-shrink: 0; }
+
+  .award-text strong {
+    display: block;
+    font-size: 9pt;
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .award-text span {
+    font-size: 8pt;
+    color: #CBD5E0;
+    line-height: 1.45;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    flex-shrink: 0;
+    background: var(--navy);
+    padding: 9px 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left  { font-size: 7.5pt; color: #718096; }
+  .footer-right { font-size: 7.5pt; color: var(--gold); font-style: italic; }
+
+  .bottom-bar {
+    height: 5px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, var(--gold), var(--navy));
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="photo-wrap">
+      <img src="for CV.jpg" alt="Mohammad Rizka Fadhli">
+    </div>
+    <div class="header-text">
+      <h1>Mohammad Rizka Fadhli, M.Si.</h1>
+      <div class="position">Market Research Specialist &nbsp;&middot;&nbsp; PT Nutrifood Indonesia</div>
+      <div class="contact-row">
+        <div class="contact-item"><span>&#9993;</span>ikanx101@gmail.com</div>
+        <div class="contact-item"><span>&#127760;</span>ikanx101.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- BIOGRAPHY -->
+    <section>
+      <div class="section-title">Biography</div>
+      <p class="bio-text">
+        <strong>Mohammad Rizka Fadhli, M.Si.</strong> is a seasoned data scientist, market researcher,
+        and applied mathematician with over <strong>18 years of professional experience</strong> across
+        FMCG, telecommunications, banking, and e-commerce. He currently serves as
+        <strong>Market Research Specialist</strong> at PT Nutrifood Indonesia, where he independently
+        develops and maintains end-to-end commercial analytics solutions — spanning marketing ROI
+        analysis, demand forecasting, customer retention modeling, and raw-material procurement
+        optimization — using mathematical approaches including Monte Carlo Simulation, Mixed Marketing
+        Models, and integer programming. In parallel, he provides <strong>direct mentoring and
+        capacity-building</strong> to Nutrifood employees across various departments, equipping them
+        with analytical skills to independently function as data analysts within their respective
+        business units. His pioneering contributions to building a data-driven culture at Nutrifood
+        were recognized with the <strong>CEO Award 2025</strong>. He is a regular guest lecturer at
+        ITB and Telkom University, a certified <strong>Big Data Analyst</strong> (TUV-Rheinland),
+        and an active member of AIDI (Asosiasi Ilmuwan Data Indonesia).
+      </p>
+    </section>
+
+    <!-- TWO-COLUMN: Education (left) + Career (right) -->
+    <div class="two-col">
+
+      <!-- LEFT: ACADEMIC BACKGROUND -->
+      <div class="col-left">
+        <section>
+          <div class="section-title">Academic Background</div>
+
+          <div class="edu-item">
+            <div class="edu-dot-wrap">
+              <div class="edu-dot"></div>
+              <div class="edu-line"></div>
+            </div>
+            <div class="edu-content">
+              <div class="edu-degree">Master of Science — Matematika</div>
+              <div class="edu-inst">Institut Teknologi Bandung (ITB)</div>
+              <div class="edu-year">2021 – 2023</div>
+              <div class="edu-thesis">
+                "Pengembangan Sistem Pendukung Keputusan untuk Menyelesaikan Masalah Optimisasi
+                pada Pemilihan dan Penentuan Komposisi Bahan Baku untuk Multi-Produk, Multi-Periode,
+                Multi-Pemasok, Serta Kontrak Pembelian Minimum Selama Satu Tahun"
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-dot-wrap">
+              <div class="edu-dot"></div>
+            </div>
+            <div class="edu-content">
+              <div class="edu-degree">Bachelor of Science — Matematika</div>
+              <div class="edu-inst">Institut Teknologi Bandung (ITB)</div>
+              <div class="edu-year">2004 – 2008</div>
+              <div class="edu-thesis">
+                "Model Matematika Bagi Hasil pada Pembiayaan Syariah Pedagang Pasar
+                Balubur Bandung"
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECOGNITION -->
+        <section>
+          <div class="section-title">Recognition</div>
+          <div class="award-box">
+            <div class="award-icon">&#127942;</div>
+            <div class="award-text">
+              <strong>CEO Award 2025 &mdash; PT Nutrifood Indonesia</strong>
+              <span>
+                For pioneering data analytics initiatives and establishing a
+                measurable data-driven decision-making culture across the organization.
+              </span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT: PROFESSIONAL EXPERIENCE -->
+      <div class="col-right">
+        <section>
+          <div class="section-title">Professional Experience</div>
+
+          <div class="career-item">
+            <div class="career-dot-wrap">
+              <div class="career-dot"></div>
+              <div class="career-line"></div>
+            </div>
+            <div class="career-content">
+              <div class="career-role">Market Research Specialist</div>
+              <div class="career-org">PT Nutrifood Indonesia</div>
+              <div class="career-period">Nov 2014 – Present</div>
+              <div class="career-desc">
+                Works independently to develop analytics solutions across sales, marketing,
+                and operations. Provides direct mentoring to employees across departments,
+                building in-house analytical capability at each business unit.
+              </div>
+            </div>
+          </div>
+
+          <div class="career-item">
+            <div class="career-dot-wrap">
+              <div class="career-dot"></div>
+              <div class="career-line"></div>
+            </div>
+            <div class="career-content">
+              <div class="career-role">International Advisor</div>
+              <div class="career-org">Yamada Consulting &amp; Spire</div>
+              <div class="career-period">Sep 2023 – Apr 2026</div>
+              <div class="career-desc">
+                Advisory for consumer research and data science projects; data analytics
+                trainer for the Indonesia branch office.
+              </div>
+            </div>
+          </div>
+
+          <div class="career-item">
+            <div class="career-dot-wrap">
+              <div class="career-dot"></div>
+              <div class="career-line"></div>
+            </div>
+            <div class="career-content">
+              <div class="career-role">Senior Consultant</div>
+              <div class="career-org">Spire Research &amp; Consulting</div>
+              <div class="career-period">Aug 2010 – May 2012</div>
+              <div class="career-desc">
+                Specialist in retail audit and data analysis for the telecommunications
+                industry; statistics specialist for Malaysia and Vietnam offices.
+              </div>
+            </div>
+          </div>
+
+          <div class="career-item">
+            <div class="career-dot-wrap">
+              <div class="career-dot"></div>
+            </div>
+            <div class="career-content">
+              <div class="career-role">Research Executive / Senior Research Executive</div>
+              <div class="career-org">MRI &amp; Biro Riset Statistik</div>
+              <div class="career-period">Aug 2008 – Aug 2010</div>
+              <div class="career-desc">
+                Mystery shopping and market research specialist for the banking and
+                financial services industry.
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+
+    </div><!-- /two-col -->
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-left">Industrial Mathematics Weeks (IMW) ITB 2026 &nbsp;|&nbsp; Summer Course &nbsp;|&nbsp; 13 July 2026</div>
+    <div class="footer-right">"Passionate about business, data, and customer behavior."</div>
+  </div>
+  <div class="bottom-bar"></div>
+
+</div>
+</body>
+</html>

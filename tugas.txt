@@ -1,0 +1,13 @@
+Pada 7 Juli 2026, insyaAllah saya akan memberikan sesi sharing berjudul "Metode-Metode Riset yang Tidak Biasa".
+
+saya minta bantuan kamu untuk membuatkan presentasinya dalam bentuk html yang profesional namun tetap kasual.
+
+saya telah memasukkan beberapa materi di folder ini, saya ingin kamu membuat presentasinya berdasarkan materi tersebut sesuai dengan perintah saya.
+
+oke, pertama-tama pada slide cover, tampilkan judul, nama saya (Ikang Fadhli), dan nama blog saya. Sisipkan juga logo SocialX (bernama images.png) pada slide tersebut.
+
+Lalu buka dengan sedikit perkenalan dari saya. Gunakan informasi di "short_bio.html". Buat slide perkenalan ini singkat saja. Jangan terlalu over information. Tidak perlu menuliskan Nutrifood, cukup perusahaan FMCG.
+
+Sebelum masuk ke materi terkait Metode Riset yang Tidak biasa, saya mau kamu membuat beberapa slides penjelasan tentang market riset. Ambil materinya dari file "market_riset.pdf", terutama pada poin: 3.1, 3.1.1, 3.1.2, 4.1, 4.1.1, 4.1.2, 5.1, 5.1.1, 5.1.2, 5.2, 5.2.1, 5.2.2, 5.3.1
+
+Sebelum saya masuk ke contoh real, coba buat dulu presentasinya!
