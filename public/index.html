@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikang Fadhli — Sharing</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --slate:   #0f1520;
+    --carbon:  #080c12;
+    --gun:     #ff6825;
+    --tel:     #00d0b8;
+    --vio:     #b57bfa;
+    --bone:    #fafaf7;
+    --muted:   #8892a4;
+    --graphite:#1e2535;
+    --f: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background: var(--slate);
+    color: var(--bone);
+    font-family: var(--f);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: var(--carbon);
+    border-bottom: 1px solid var(--graphite);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gun);
+    flex-shrink: 0;
+  }
+
+  header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  header span {
+    color: var(--muted);
+    font-size: 14px;
+    margin-left: auto;
+  }
+
+  main {
+    flex: 1;
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero p {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gun);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .hero .sub {
+    font-size: 16px;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--graphite);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--carbon);
+    border: 1px solid var(--graphite);
+    border-radius: 12px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .2s, transform .2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent, var(--gun));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s;
+  }
+
+  .card:hover::before { transform: scaleX(1); }
+  .card:hover { border-color: #2d3a50; transform: translateY(-2px); }
+
+  .card-icon {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255,104,37,.12);
+    color: var(--gun);
+    width: fit-content;
+  }
+
+  .card[data-accent="tel"] .card-tag { background: rgba(0,208,184,.12); color: var(--tel); }
+  .card[data-accent="tel"] { --accent: var(--tel); }
+  .card[data-accent="vio"] .card-tag { background: rgba(181,123,250,.12); color: var(--vio); }
+  .card[data-accent="vio"] { --accent: var(--vio); }
+
+  footer {
+    padding: 24px 40px;
+    border-top: 1px solid var(--graphite);
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 16px 20px; }
+    main { padding: 36px 20px; }
+    .hero h2 { font-size: 28px; }
+    footer { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-dot"></div>
+  <h1>Ikang Fadhli</h1>
+  <span>ikanx101.com</span>
+</header>
+
+<main>
+  <div class="hero">
+    <p>Selamat datang</p>
+    <h2>Materi &amp; Presentasi</h2>
+    <p class="sub">Kumpulan materi presentasi dan profil yang dapat diakses kapan saja.</p>
+  </div>
+
+  <div class="section-label">Presentasi</div>
+  <div class="cards">
+    <a class="card" href="presentation.html">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Metode Riset yang Jarang Dilakukan</div>
+      <div class="card-desc">Eksplorasi metode-metode riset tidak konvensional yang powerful untuk insight yang lebih dalam.</div>
+      <div class="card-tag">Slide Deck</div>
+    </a>
+  </div>
+
+  <div class="section-label">Profil</div>
+  <div class="cards">
+    <a class="card" href="short_bio.html" data-accent="tel">
+      <div class="card-icon">👤</div>
+      <div class="card-title">Short Biography</div>
+      <div class="card-desc">Profil singkat Mohammad Rizka Fadhli — latar belakang, keahlian, dan pengalaman.</div>
+      <div class="card-tag">Profil</div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Mohammad Rizka Fadhli &nbsp;·&nbsp; Dibuat dengan ❤️ untuk presentasi via iPad
+</footer>
+
+</body>
+</html>
