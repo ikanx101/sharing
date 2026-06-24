@@ -47,7 +47,8 @@ html, body {
 
 /* ── Slide engine ── */
 .slide {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 52px;
   background: var(--slate);
   opacity: 0; pointer-events: none;
   transition: opacity .3s ease;
@@ -497,6 +498,7 @@ html, body {
 
   #nav { height: 40px; padding: 0 32px; }
   #nav .nbtn { padding: 5px 14px; }
+  .slide { bottom: 40px; }
 
   /* Cover */
   .s-cover { padding: 32px 56px 0; }
